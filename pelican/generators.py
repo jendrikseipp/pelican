@@ -210,10 +210,7 @@ class Generator:
         processor.
         """
         for item in items:
-            value = getattr(self, item)
-            if hasattr(value, 'items'):
-                value = list(value.items())  # py3k safeguard for iterators
-            self.context[item] = value
+            self.context[item] = getattr(self, item)
 
     def __str__(self):
         # return the name of the class for logging purposes
